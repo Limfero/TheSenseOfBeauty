@@ -1,27 +1,54 @@
-using System;
 using UnityEngine;
 
+[RequireComponent (typeof(SlotPresenter))]
 public class SlotView : MonoBehaviour
 {
-    [SerializeField] private SlotPresenter _slotPresenter;
+    [SerializeField] Type _type;
+
+    private SlotPresenter _slotPresenter;
+
+    private void Awake()
+    {
+        _slotPresenter = GetComponent<SlotPresenter>();
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (_slotPresenter.IsBusy == true)
+        if (collision.gameObject.TryGetComponent(out ItemPresenter itemPresenter) == false)
             return;
 
-        if (collision.gameObject.TryGetComponent(out ItemView itemView))
-            _slotPresenter.TryBusy(itemView);
+        if (_slotPresenter.CurrentItem == itemPresenter)
+            return;
+
+        if (_type == Type.OnlyRigth && _slotPresenter.TryGetSlot(out Slot _, itemPresenter.Id) == false)
+            return;
+
+        if (_slotPresenter.IsBusy)
+            OnBusy(itemPresenter, _type);
+
+        _slotPresenter.Busy(itemPresenter);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(_slotPresenter.IsBusy == false)
+        if (collision.gameObject.TryGetComponent(out ItemPresenter itemPresenter) == false)
             return;
 
-        if (collision.gameObject.TryGetComponent(out ItemView itemView) == false)
-            return;
+        _slotPresenter.GetFree(itemPresenter);
+    }
 
-        _slotPresenter.TryGetFree(itemView);
+    private void OnBusy(ItemPresenter itemPresenter, Type type)
+    {
+        switch (type)
+        {
+            case Type.Replace:
+                _slotPresenter.Replace(itemPresenter);
+                break;
+
+            case Type.OnlyRigth:
+            case Type.Remove:
+                _slotPresenter.Remove();
+                break;
+        }
     }
 }

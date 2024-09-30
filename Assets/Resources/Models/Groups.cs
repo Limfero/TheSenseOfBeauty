@@ -1,7 +1,7 @@
 using System;
 
 [Serializable]
-public enum ItemTypes
+public enum Groups
 {
     Test1,
     Test2
