@@ -4,13 +4,13 @@ using UnityEngine;
 [Serializable]
 public class Slot
 {
-    [SerializeField] private int _itemId;
+    [SerializeField] private int[] _itemsId;
     [SerializeField] private Groups _group;
     [SerializeField] private bool _isBusy;
 
     public bool IsBusy => _isBusy;
 
-    public int ItemId => _itemId;
+    public int[] ItemsId => _itemsId;
 
     public Groups Group => _group;
 

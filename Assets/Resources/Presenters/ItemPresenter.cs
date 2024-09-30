@@ -20,14 +20,18 @@ public class ItemPresenter : MonoBehaviour
 
     public bool CheckSlot()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down);
 
-        if(hit.collider == null) 
+        if (hits.Length == 0)
             return false;
 
-        if(hit.collider.TryGetComponent(out SlotPresenter _) == false)
-            return false;
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.collider.TryGetComponent(out ItemPresenter presenter))
+                if (presenter != this)
+                    return true;
+        }
 
-        return true;
+        return false;
     }
 }

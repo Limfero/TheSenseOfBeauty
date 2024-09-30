@@ -5,7 +5,6 @@ using UnityEngine;
 public class SlotPresenter : MonoBehaviour
 {
     [SerializeField] private Slot[] _slots;
-    [SerializeField] private Vector2 _offset = Vector2.left;
 
     public IReadOnlyList<Slot> Slots => _slots;
 
@@ -19,7 +18,6 @@ public class SlotPresenter : MonoBehaviour
     {
         IsBusy = true;
         CurrentItem = item;
-        item.Place(transform.position, transform.rotation);
         item.SetSlot(transform);
 
         if (TryGetSlot(out Slot slot, item.Id))
@@ -38,20 +36,14 @@ public class SlotPresenter : MonoBehaviour
             slot.Release();
     }
 
-    public void Remove()
-    {
-        CurrentItem.Disable();
-        CurrentItem.Place(transform.position + (Vector3)_offset, transform.rotation);
-    }
-
     public void Replace(ItemPresenter item)
     {
         CurrentItem.Disable();
 
         if (item.Slot != null)
             CurrentItem.Place(item.Slot.position, item.Slot.rotation);
-        else
-            Remove();
+
+        item.Place(transform.position, transform.rotation);
     }
 
     public bool TryGetSlot(out Slot slot, int itemId)
@@ -60,10 +52,13 @@ public class SlotPresenter : MonoBehaviour
 
         foreach (Slot item in _slots)
         {
-            if (item.ItemId == itemId)
+            foreach (var id in item.ItemsId)
             {
-                slot = item;
-                return true;
+                if (id == itemId)
+                {
+                    slot = item;
+                    return true;
+                }
             }
         }
 

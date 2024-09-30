@@ -44,11 +44,6 @@ public class SlotView : MonoBehaviour
             case Type.Replace:
                 _slotPresenter.Replace(itemPresenter);
                 break;
-
-            case Type.OnlyRigth:
-            case Type.Remove:
-                _slotPresenter.Remove();
-                break;
         }
     }
 }

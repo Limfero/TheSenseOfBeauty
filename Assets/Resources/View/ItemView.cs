@@ -22,6 +22,7 @@ public class ItemView : MonoBehaviour
     private void Awake()
     {
         _transform = transform;
+        _lastPosition = transform.position;
         _rigidbody = GetComponent<Rigidbody2D>();
         _presenter = GetComponent<ItemPresenter>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -66,7 +67,11 @@ public class ItemView : MonoBehaviour
             Return();
     }
 
-    private void Return() => Put(_lastPosition, _transform.rotation);
+    private void Return()
+    {
+        Disable();
+        Put(_lastPosition, _transform.rotation);
+    }
 
     private void Put(Vector2 position, Quaternion rotation)
     {
