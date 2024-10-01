@@ -52,13 +52,10 @@ public class SlotPresenter : MonoBehaviour
 
         foreach (Slot item in _slots)
         {
-            foreach (var id in item.ItemsId)
+            if (item.ItemId == itemId)
             {
-                if (id == itemId)
-                {
-                    slot = item;
-                    return true;
-                }
+                slot = item;
+                return true;
             }
         }
 
