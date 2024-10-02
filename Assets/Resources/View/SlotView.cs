@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent (typeof(SlotPresenter))]
 public class SlotView : MonoBehaviour
 {
-    [SerializeField] Type _type;
+    [SerializeField] TypeMovement _type;
 
     private SlotPresenter _slotPresenter;
 
@@ -20,7 +20,7 @@ public class SlotView : MonoBehaviour
         if (_slotPresenter.CurrentItem == itemPresenter)
             return;
 
-        if (_type == Type.OnlyRigth && _slotPresenter.TryGetSlot(out Slot _, itemPresenter.Id) == false)
+        if (_type == TypeMovement.OnlyRigth && _slotPresenter.TryGetSlot(out Slot _, itemPresenter.Id) == false)
             return;
 
         if (_slotPresenter.IsBusy)
@@ -37,11 +37,11 @@ public class SlotView : MonoBehaviour
         _slotPresenter.GetFree(itemPresenter);
     }
 
-    private void OnBusy(ItemPresenter itemPresenter, Type type)
+    private void OnBusy(ItemPresenter itemPresenter, TypeMovement type)
     {
         switch (type)
         {
-            case Type.Replace:
+            case TypeMovement.Replace:
                 _slotPresenter.Replace(itemPresenter);
                 break;
         }

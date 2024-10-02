@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(ItemPresenter), typeof(SpriteRenderer))]
 public class ItemView : MonoBehaviour
 {
-    [SerializeField] private Type _type;
+    [SerializeField] private TypeMovement _type;
     [SerializeField] private ShadowView _shadowView;
 
     private Vector2 _lastPosition;
@@ -63,7 +63,7 @@ public class ItemView : MonoBehaviour
 
     private void OnUp()
     {
-        if(_type == Type.Replace && _presenter.CheckSlot() == false)
+        if(_type == TypeMovement.Replace && _presenter.CheckSlot() == false)
             Return();
     }
 
