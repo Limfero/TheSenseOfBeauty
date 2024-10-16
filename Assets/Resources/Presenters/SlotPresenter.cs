@@ -4,61 +4,23 @@ using UnityEngine;
 
 public class SlotPresenter : MonoBehaviour
 {
-    [SerializeField] private Slot[] _slots;
+    private readonly List<ItemPresenter> _items = new();
 
-    public IReadOnlyList<Slot> Slots => _slots;
-
-    public bool IsBusy { get; private set; } = false;
-    public ItemPresenter CurrentItem { get; private set; }
+    public IReadOnlyList<ItemPresenter> Items => _items;
 
 
-    public event Action<Groups> Occupied;
+    public event Action<ItemPresenter> Added;
+    public event Action<ItemPresenter> Removed;
 
-    public void Busy(ItemPresenter item)
+    public void Add(ItemPresenter item)
     {
-        IsBusy = true;
-        CurrentItem = item;
-        item.SetSlot(transform);
-
-        if (TryGetSlot(out Slot slot, item.Id))
-        {
-            slot.Take();
-            Occupied?.Invoke(slot.Group);
-        }
+        _items.Add(item);
+        Added?.Invoke(item);
     }
 
-    public void GetFree(ItemPresenter item)
+    public void Remove(ItemPresenter item)
     {
-        IsBusy = false;
-        CurrentItem = null;
-
-        if (TryGetSlot(out Slot slot, item.Id))
-            slot.Release();
-    }
-
-    public void Replace(ItemPresenter item)
-    {
-        CurrentItem.Disable();
-
-        if (item.Slot != null)
-            CurrentItem.Place(item.Slot.position, item.Slot.rotation);
-
-        item.Place(transform.position, transform.rotation);
-    }
-
-    public bool TryGetSlot(out Slot slot, int itemId)
-    {
-        slot = null;
-
-        foreach (Slot item in _slots)
-        {
-            if (item.ItemId == itemId)
-            {
-                slot = item;
-                return true;
-            }
-        }
-
-        return false;
+        _items.Remove(item);
+        Removed?.Invoke(item);
     }
 }
