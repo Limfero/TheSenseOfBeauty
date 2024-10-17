@@ -699,10 +699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _restart: {fileID: 8728069906577690709}
   _next: {fileID: 9131888136337384870}
-  starsPositions:
-  - {fileID: 5744744194716540155}
-  StarsOff: {fileID: 6018239428231725705, guid: b5865e97bb669714cba1de851ab7bb71, type: 3}
-  StarsOn: {fileID: 3633673582577594435, guid: aa707e7b1b8d588459c6b8d2d5c63d62, type: 3}
+  _stars: []
 --- !u!1 &6525756854946093830
 GameObject:
   m_ObjectHideFlags: 0

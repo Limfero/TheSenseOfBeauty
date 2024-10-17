@@ -5,13 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class ItemView : MonoBehaviour
 {
+    [SerializeField] private int _upOrder = 2;
+    [SerializeField] private int _downOrder = 1;
+
     private Transform _transform;
     private SpriteRenderer _spriteRenderer;
     private ItemPresenter _presenter;
     private Coroutine _coroutine;
 
-    private readonly int _upOrder = 2;
-    private readonly int _downOrder = 1;
     private readonly float _smoothDecreaseDuration = 0.5f;
 
     private void Awake()

@@ -12,6 +12,7 @@ public class PlaceModule : SlotModule
 
     private void Place(ItemPresenter presenter)
     {
-        presenter.SetPosition(transform.position);
+        if(SlotPresenter.Items.Count - 1 == 0)
+            presenter.SetPosition(transform.position);
     }
 }
