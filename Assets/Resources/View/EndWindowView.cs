@@ -1,16 +1,25 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndWindowView : MonoBehaviour
 {
+    [SerializeField] private PlayerResults _results;
     [SerializeField] private Button _restart;
     [SerializeField] private Button _next;
     [SerializeField] private List<StarView> _stars;
 
+    private int _sceneId;
+
     public event Action RestartButtonPresed;
     public event Action NextButtonPresed;
+
+    private void Awake()
+    {
+        _sceneId = SceneManager.GetActiveScene().buildIndex;
+    }
 
     private void OnEnable()
     {
@@ -27,8 +36,12 @@ public class EndWindowView : MonoBehaviour
     public void Enable(int finalId)
     {
         gameObject.SetActive(true);
-        //из PlayerPrefs брать уже готовые звуздочки и сохранять только что сделанную
-        _stars[finalId - 1].On();
+
+        _results.Save(finalId, _sceneId);
+
+        for (int i = 0; i < _stars.Count; i++)
+            if (_results.CheckFinal(i + 1, _sceneId))
+                _stars[i].On();
     }
 
     private void Restart() => RestartButtonPresed?.Invoke();
