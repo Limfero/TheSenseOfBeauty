@@ -12,11 +12,13 @@ public class ItemView : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private ItemPresenter _presenter;
     private Coroutine _coroutine;
+    private Vector3 _offset;
 
     private readonly float _smoothDecreaseDuration = 0.5f;
+    private readonly float _distanceToCameraZ = 10f;
 
     private void Awake()
-    {
+    { 
         _transform = transform;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _presenter = GetComponent<ItemPresenter>();
@@ -27,12 +29,18 @@ public class ItemView : MonoBehaviour
         _presenter.SetPosition(_transform.position);
     }
 
+    private void OnMouseDown()
+    {
+        Vector3 mousePosition = GetMouseWorldPosition();
+        _offset = transform.position - mousePosition;
+    }
+
     private void OnMouseDrag()
     {
         _spriteRenderer.sortingOrder = _upOrder;
         _transform.rotation = Quaternion.identity;
-        Vector3 newPosition = new(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
-        _transform.position = Camera.main.ScreenToWorldPoint(newPosition);
+        Vector3 mousePosition = GetMouseWorldPosition();
+        transform.position = mousePosition + _offset;
     }
 
     private void OnMouseUp()
@@ -62,5 +70,13 @@ public class ItemView : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mouseScreenPosition = Input.mousePosition;
+        mouseScreenPosition.z = _distanceToCameraZ;
+
+        return Camera.main.ScreenToWorldPoint(mouseScreenPosition);
     }
 }
