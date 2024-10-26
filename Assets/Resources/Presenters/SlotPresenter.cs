@@ -9,6 +9,7 @@ public class SlotPresenter : MonoBehaviour
     public IReadOnlyList<ItemPresenter> Items => _items;
 
     public event Action<ItemPresenter> Added;
+    public event Action<ItemPresenter> Removed;
 
     public void Add(ItemPresenter item)
     {
@@ -16,5 +17,9 @@ public class SlotPresenter : MonoBehaviour
         Added?.Invoke(item);
     }
 
-    public void Remove(ItemPresenter item) => _items.Remove(item);
+    public void Remove(ItemPresenter item) 
+    { 
+        _items.Remove(item); 
+        Removed?.Invoke(item);
+    }
 }

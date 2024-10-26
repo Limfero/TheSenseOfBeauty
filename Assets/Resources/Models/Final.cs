@@ -5,10 +5,9 @@ using UnityEngine;
 [Serializable]
 public class Final
 {
-    [SerializeField] private List<ItemsInSlot> _itemsInSlots;
     [SerializeField] private int _finalId;
+    [SerializeField] private List<ItemsInSlot> _itemsInSlots;
 
-    public List<ItemsInSlot> ItemsInSlots => _itemsInSlots;
-
+    public IReadOnlyList<ItemsInSlot> ItemsInSlots => _itemsInSlots;
     public int FinalId => _finalId;
 }
