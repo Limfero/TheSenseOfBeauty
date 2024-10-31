@@ -23951,7 +23951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Finals:
-  - _itemsInSlots:
+  - _finalId: 1
+    _itemsInSlots:
     - _slot: {fileID: 312779473}
       _items: 01000000
     - _slot: {fileID: 1611839391}
@@ -24126,7 +24127,6 @@ MonoBehaviour:
       _items: 56000000
     - _slot: {fileID: 1651297916}
       _items: 57000000
-    _finalId: 1
   _variant: 1
 --- !u!4 &900629589
 Transform:
@@ -29194,7 +29194,7 @@ PrefabInstance:
     - target: {fileID: 4673134604762608255, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2fd5de7fabaaa5349a070619356f296b, type: 3}
+      objectReference: {fileID: 21300000, guid: 7f278a8a2733d1f479c487e4792f0601, type: 3}
     - target: {fileID: 4890976186250058351, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -26.6
@@ -29287,6 +29287,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7066287156806379383, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ee6faac225c05d74481e65d5a82c2eff, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2367387914378470766, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
