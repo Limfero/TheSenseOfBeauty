@@ -19,7 +19,7 @@ public class SlotPresenter : MonoBehaviour
 
     public void Remove(ItemPresenter item) 
     { 
-        _items.Remove(item); 
+        _items.Remove(item);
         Removed?.Invoke(item);
     }
 }

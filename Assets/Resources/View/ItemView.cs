@@ -3,12 +3,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(ItemPresenter))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(Collider2D))]
 public class ItemView : MonoBehaviour
 {
     [SerializeField] private int _upOrder = 2;
     [SerializeField] private int _downOrder = 1;
 
     private Transform _transform;
+    private Collider2D _collider;
     private SpriteRenderer _spriteRenderer;
     private ItemPresenter _presenter;
     private Coroutine _coroutine;
@@ -22,6 +24,7 @@ public class ItemView : MonoBehaviour
         _transform = transform;
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _presenter = GetComponent<ItemPresenter>();
+        _collider = GetComponent<Collider2D>();
     }
 
     private void Start()
@@ -56,6 +59,10 @@ public class ItemView : MonoBehaviour
         _coroutine = StartCoroutine(Countdown(position));
     }
 
+    public void Enable() => _collider.enabled = true;
+
+    public void Disable() => _collider.enabled = false;
+
     private IEnumerator Countdown(Vector2 position)
     {
         float elasedTime = 0f;
@@ -70,6 +77,8 @@ public class ItemView : MonoBehaviour
 
             yield return null;
         }
+
+        Enable();
     }
 
     private Vector3 GetMouseWorldPosition()

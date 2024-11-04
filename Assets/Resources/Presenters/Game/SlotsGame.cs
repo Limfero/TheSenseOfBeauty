@@ -48,8 +48,10 @@ public class SlotsGame : Game
     private bool CheckFinal(Final final)
     {
         foreach (ItemsInSlot itemsInSlot in final.ItemsInSlots)
+        {
             if (EqualsList(itemsInSlot.Items, itemsInSlot.Slot.Items.Select(item => item.Id).ToList()) == false)
                 return false;
+        }
 
         return true;
     }
