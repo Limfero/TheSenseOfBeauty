@@ -1197,6 +1197,54 @@ PrefabInstance:
       propertyPath: _items.Array.data[7]
       value: 
       objectReference: {fileID: 1232399232}
+    - target: {fileID: 9097218080383763009, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _buttonHelp
+      value: 
+      objectReference: {fileID: 542916837}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 876331234}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _results
+      value: 
+      objectReference: {fileID: 636016821}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[0]
+      value: 
+      objectReference: {fileID: 1070267007}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[1]
+      value: 
+      objectReference: {fileID: 375703400}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[2]
+      value: 
+      objectReference: {fileID: 1059524980}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[3]
+      value: 
+      objectReference: {fileID: 1827468580}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[4]
+      value: 
+      objectReference: {fileID: 1314154562}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[5]
+      value: 
+      objectReference: {fileID: 1600379377}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[6]
+      value: 
+      objectReference: {fileID: 637290277}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[7]
+      value: 
+      objectReference: {fileID: 1232399232}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

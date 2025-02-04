@@ -1175,6 +1175,46 @@ PrefabInstance:
       propertyPath: _items.Array.data[5]
       value: 
       objectReference: {fileID: 1774614519}
+    - target: {fileID: 9097218080383763009, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _buttonHelp
+      value: 
+      objectReference: {fileID: 1530901938}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 770218241}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _results
+      value: 
+      objectReference: {fileID: 1856992026}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[0]
+      value: 
+      objectReference: {fileID: 2122877347}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[1]
+      value: 
+      objectReference: {fileID: 1358124414}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[2]
+      value: 
+      objectReference: {fileID: 181453362}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[3]
+      value: 
+      objectReference: {fileID: 2061243571}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[4]
+      value: 
+      objectReference: {fileID: 2085245934}
+    - target: {fileID: 9207804923195623467, guid: 165595ae5541ddf40ab08228be4c0bf9, type: 3}
+      propertyPath: _items.Array.data[5]
+      value: 
+      objectReference: {fileID: 1774614519}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
