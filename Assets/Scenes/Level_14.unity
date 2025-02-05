@@ -275,6 +275,31 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5368103016350795264, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
   m_PrefabInstance: {fileID: 198544167}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &198544169 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6404145811203248260, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
+  m_PrefabInstance: {fileID: 198544167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &198544170 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1429542105938853786, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
+  m_PrefabInstance: {fileID: 198544167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &198544171 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4910617445744708004, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
+  m_PrefabInstance: {fileID: 198544167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &198544172 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3323886801576268830, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
+  m_PrefabInstance: {fileID: 198544167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &198544173 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8840538946026837443, guid: 179479811ca6c924ba9c9e272067fc13, type: 3}
+  m_PrefabInstance: {fileID: 198544167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &199952938
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,12 +315,13 @@ GameObject:
   - component: {fileID: 199952940}
   - component: {fileID: 199952945}
   - component: {fileID: 199952946}
+  - component: {fileID: 199952947}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &199952939
 Transform:
@@ -467,6 +493,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushForce: 10
+--- !u!114 &199952947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199952938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727630bc322bbec4987f90c1b1b47db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseDown:
+  - {fileID: 198544173}
+  - {fileID: 198544172}
+  - {fileID: 198544171}
+  _mouseUp:
+  - {fileID: 198544170}
+  - {fileID: 198544169}
 --- !u!1 &294278153
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,12 +527,13 @@ GameObject:
   - component: {fileID: 294278155}
   - component: {fileID: 294278160}
   - component: {fileID: 294278161}
+  - component: {fileID: 294278162}
   m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &294278154
 Transform:
@@ -659,6 +705,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushForce: 10
+--- !u!114 &294278162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294278153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727630bc322bbec4987f90c1b1b47db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseDown:
+  - {fileID: 198544173}
+  - {fileID: 198544172}
+  - {fileID: 198544171}
+  _mouseUp:
+  - {fileID: 198544170}
+  - {fileID: 198544169}
 --- !u!1 &363141815
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +876,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &414688413
 Transform:
@@ -1186,12 +1251,13 @@ GameObject:
   - component: {fileID: 727488676}
   - component: {fileID: 727488681}
   - component: {fileID: 727488682}
+  - component: {fileID: 727488683}
   m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &727488675
 Transform:
@@ -1363,6 +1429,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushForce: 10
+--- !u!114 &727488683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727488674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727630bc322bbec4987f90c1b1b47db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseDown:
+  - {fileID: 198544173}
+  - {fileID: 198544172}
+  - {fileID: 198544171}
+  _mouseUp:
+  - {fileID: 198544170}
+  - {fileID: 198544169}
 --- !u!114 &858865185 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6392546121401109379, guid: dfd53adccaf13e746bb944548061cf35, type: 3}
@@ -1389,7 +1474,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &961860887
 Transform:
@@ -1473,7 +1558,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &970019109
 Transform:
@@ -1761,7 +1846,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1144853384
 Transform:
@@ -1901,7 +1986,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1325187559
 Transform:
@@ -1938,12 +2023,13 @@ GameObject:
   - component: {fileID: 1469620304}
   - component: {fileID: 1469620309}
   - component: {fileID: 1469620310}
+  - component: {fileID: 1469620311}
   m_Layer: 0
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1469620303
 Transform:
@@ -2115,6 +2201,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushForce: 10
+--- !u!114 &1469620311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469620302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727630bc322bbec4987f90c1b1b47db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseDown:
+  - {fileID: 198544173}
+  - {fileID: 198544172}
+  - {fileID: 198544171}
+  _mouseUp:
+  - {fileID: 198544170}
+  - {fileID: 198544169}
 --- !u!1001 &1506882092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2199,12 +2304,13 @@ GameObject:
   - component: {fileID: 1532924321}
   - component: {fileID: 1532924326}
   - component: {fileID: 1532924327}
+  - component: {fileID: 1532924328}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1532924320
 Transform:
@@ -2376,6 +2482,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pushForce: 10
+--- !u!114 &1532924328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532924319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727630bc322bbec4987f90c1b1b47db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mouseDown:
+  - {fileID: 198544173}
+  - {fileID: 198544172}
+  - {fileID: 198544171}
+  _mouseUp:
+  - {fileID: 198544170}
+  - {fileID: 198544169}
 --- !u!114 &1709702736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6392546121401109379, guid: dfd53adccaf13e746bb944548061cf35, type: 3}
@@ -2440,7 +2565,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1838726604
 Transform:

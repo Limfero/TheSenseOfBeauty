@@ -12,7 +12,7 @@ public class Audio : MonoBehaviour
 
     private readonly int _linearToAttenuationLevel = 20;
 
-    private void Start()
+    private void Awake()
     {
         LoadAudioSetting();
     }
@@ -57,7 +57,13 @@ public class Audio : MonoBehaviour
         AudioSetting setting = _audioSettingsSaver.Load();
 
         if (setting == null)
+        {
+            _audioMixer.SetFloat(MasterVolume, 0);
+            _audioMixer.SetFloat(AmbientVolume, 0);
+            _audioMixer.SetFloat(SfxVolume, 0);
+
             return;
+        }
 
         _audioMixer.SetFloat(MasterVolume, Mathf.Log10(setting.MasterVolume) * _linearToAttenuationLevel);
         _audioMixer.SetFloat(AmbientVolume, Mathf.Log10(setting.AmbientVolume) * _linearToAttenuationLevel);
