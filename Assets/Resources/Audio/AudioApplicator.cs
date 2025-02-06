@@ -25,15 +25,15 @@ public class AudioApplicator : MonoBehaviour
     {
         AudioSetting settings = _audioSaver.Load();
 
+        if (settings == null)
+            return;
+
         ApplyAudioSetting(settings);
         ApplySlidersSettings(settings);
     }
 
     private void ApplySlidersSettings(AudioSetting setting)
     {
-        if (setting == null)
-            return;
-
         _masterVolume.value = Mathf.Pow(_logarithmBase, setting.MasterVolume / _linearToAttenuationLevel);
         _ambientVolume.value = Mathf.Pow(_logarithmBase, setting.AmbientVolume / _linearToAttenuationLevel);
         _sfxVolume.value = Mathf.Pow(_logarithmBase, setting.SfxVolume / _linearToAttenuationLevel);
@@ -41,9 +41,6 @@ public class AudioApplicator : MonoBehaviour
 
     private void ApplyAudioSetting(AudioSetting setting)
     {
-        if (setting == null)
-            return;
-
         _audio.ChangeMasterVolume(setting.MasterVolume);
         _audio.ChangeAmbientVolume(setting.AmbientVolume);
         _audio.ChangeSfxVolume(setting.SfxVolume);
