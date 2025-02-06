@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7891309696935761}
   - component: {fileID: 3124713654355384406}
   - component: {fileID: 7588944170258941866}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1790635501175749205}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.95, y: 2.36, z: -0.06088961}
+  m_LocalPosition: {x: -5.95, y: 2.36, z: -100}
   m_LocalScale: {x: 5.813985, y: 5.813985, z: 5.813985}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91,8 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a4f9997b6faac3419198abebdf79afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slots: []
-  _offset: {x: -1, y: 0}
 --- !u!114 &7588944170258941866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,4 +103,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5e536bd2873444eaed329f37e5956d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0

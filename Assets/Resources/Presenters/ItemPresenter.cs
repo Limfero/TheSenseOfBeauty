@@ -20,9 +20,7 @@ public class ItemPresenter : MonoBehaviour
     {
         _view.SetPosition(position);
         _currentPosition = position;
-    }      
-
-    public void Replace(Vector3 position) => _view.SetPosition(position);
+    }
 
     public void Disable() => _view.Disable();
 }

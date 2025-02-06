@@ -15,6 +15,7 @@ public class ItemView : MonoBehaviour
     private ItemPresenter _presenter;
     private Coroutine _coroutine;
     private Vector3 _offset;
+    private Vector3 _lastPosition;
 
     private readonly float _smoothDecreaseDuration = 0.5f;
     private readonly float _distanceToCameraZ = 10f;
@@ -36,6 +37,7 @@ public class ItemView : MonoBehaviour
     {
         Vector3 mousePosition = GetMouseWorldPosition();
         _offset = transform.position - mousePosition;
+        _lastPosition = transform.position;
     }
 
     private void OnMouseDrag()
@@ -58,6 +60,8 @@ public class ItemView : MonoBehaviour
 
         _coroutine = StartCoroutine(Countdown(position));
     }
+
+    public void ReturnToLastPosition() => SetPosition(_lastPosition);
 
     public void Enable() => _collider.enabled = true;
 

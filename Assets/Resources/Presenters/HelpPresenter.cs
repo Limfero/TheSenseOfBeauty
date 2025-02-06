@@ -47,7 +47,7 @@ public class HelpPresenter : MonoBehaviour
                 if(CheckItem(item) == false)
                 {
                     item.Disable();
-                    item.Replace(itemsInSlot.Slot.transform.position);
+                    item.SetPosition(itemsInSlot.Slot.transform.position);
                     item.transform.rotation = Quaternion.identity;
                     item.enabled = false;
 

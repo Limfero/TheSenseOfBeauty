@@ -1,25 +1,13 @@
-using System;
 using UnityEngine;
 using Assets.Resources.Models;
 
-public class AudioSettingsSaver : MonoBehaviour
+public class AudioSaver : MonoBehaviour
 {
     private const string MasterKey = "Master_volume";
     private const string AmbientKey = "Ambient_volume";
     private const string SfxKey = "Sfx_volume";
 
     private readonly float _defaultValue = -1000f;
-
-    public void Save(AudioSetting setting)
-    {
-        if (setting == null)
-            throw new NullReferenceException($"{setting} is null");
-
-        PlayerPrefs.SetFloat(MasterKey, setting.MasterVolume);
-        PlayerPrefs.SetFloat(AmbientKey, setting.AmbientVolume);
-        PlayerPrefs.SetFloat(SfxKey, setting.SfxVolume);
-        PlayerPrefs.Save();
-    }
 
     public AudioSetting Load() 
     {
@@ -31,5 +19,13 @@ public class AudioSettingsSaver : MonoBehaviour
             return null;
 
         return new(master, ambient, sfx);
+    }
+
+    public void Save(float master, float ambient, float sfx)
+    {
+        PlayerPrefs.SetFloat(MasterKey, master);
+        PlayerPrefs.SetFloat(AmbientKey, ambient);
+        PlayerPrefs.SetFloat(SfxKey, sfx);
+        PlayerPrefs.Save();
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+using System.Collections.Generic;
 
 public class ReplaceModule : SlotModule
 {
@@ -14,10 +14,20 @@ public class ReplaceModule : SlotModule
 
     private void Replace(ItemPresenter presenter)
     {
+        List<ItemPresenter> items = new();
+
         foreach (var item in SlotPresenter.Items)
             if (item != presenter)
-                item.SetPosition(presenter.Position);
+                items.Add(item);
+
+        foreach (var item in items)
+        {
+            item.Disable();
+            item.SetPosition(presenter.Position);
+        }
 
         presenter.SetPosition(transform.position);
+
+        items = new();
     }
 }

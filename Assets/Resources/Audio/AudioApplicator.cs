@@ -1,0 +1,51 @@
+using Assets.Resources.Models;
+using UnityEngine;
+using UnityEngine.UI;
+
+[RequireComponent(typeof(AudioSaver), typeof(Audio))]
+public class AudioApplicator : MonoBehaviour
+{
+    [SerializeField] private Slider _masterVolume;
+    [SerializeField] private Slider _ambientVolume;
+    [SerializeField] private Slider _sfxVolume;
+
+    private AudioSaver _audioSaver;
+    private Audio _audio;
+
+    private readonly int _logarithmBase = 10;
+    private readonly int _linearToAttenuationLevel = 20;
+
+    private void Awake()
+    {
+        _audio = GetComponent<Audio>();
+        _audioSaver = GetComponent<AudioSaver>();
+    }
+
+    private void Start()
+    {
+        AudioSetting settings = _audioSaver.Load();
+
+        ApplyAudioSetting(settings);
+        ApplySlidersSettings(settings);
+    }
+
+    private void ApplySlidersSettings(AudioSetting setting)
+    {
+        if (setting == null)
+            return;
+
+        _masterVolume.value = Mathf.Pow(_logarithmBase, setting.MasterVolume / _linearToAttenuationLevel);
+        _ambientVolume.value = Mathf.Pow(_logarithmBase, setting.AmbientVolume / _linearToAttenuationLevel);
+        _sfxVolume.value = Mathf.Pow(_logarithmBase, setting.SfxVolume / _linearToAttenuationLevel);
+    }
+
+    private void ApplyAudioSetting(AudioSetting setting)
+    {
+        if (setting == null)
+            return;
+
+        _audio.ChangeMasterVolume(setting.MasterVolume);
+        _audio.ChangeAmbientVolume(setting.AmbientVolume);
+        _audio.ChangeSfxVolume(setting.SfxVolume);
+    }
+}
