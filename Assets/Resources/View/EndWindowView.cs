@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Animator))]
 public class EndWindowView : MonoBehaviour
 {
+    private const string Show = nameof(Show);
+
     [SerializeField] private PlayerResults _results;
     [SerializeField] private Button _restart;
     [SerializeField] private Button _next;
@@ -13,6 +16,7 @@ public class EndWindowView : MonoBehaviour
 
     private int _sceneId;
 
+    public event Action Enabled;
     public event Action RestartButtonPresed;
     public event Action NextButtonPresed;
 
@@ -36,12 +40,16 @@ public class EndWindowView : MonoBehaviour
     public void Enable(int finalId)
     {
         gameObject.SetActive(true);
-
-        _results.Save(finalId, _sceneId);
+        Enabled?.Invoke();
 
         for (int i = 0; i < _stars.Count; i++)
             if (_results.CheckFinal(i + 1, _sceneId))
-                _stars[i].On();
+                _stars[i].ChangeStar();
+
+        if(_results.CheckFinal(finalId, _sceneId) == false)
+            _stars[finalId - 1].OnStar();
+
+        _results.Save(finalId, _sceneId);
     }
 
     private void Restart() => RestartButtonPresed?.Invoke();

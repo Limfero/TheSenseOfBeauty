@@ -18,8 +18,13 @@ public class ItemPresenter : MonoBehaviour
 
     public void SetPosition(Vector3 position)
     {
-        _view.SetPosition(position);
         _currentPosition = position;
+        _view.SetPosition(position);
+    }
+
+    public void SetPositionWithoutSave(Vector3 position)
+    {
+        _view.SetPosition(position);
     }
 
     public void Disable() => _view.Disable();

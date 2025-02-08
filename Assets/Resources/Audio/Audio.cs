@@ -10,6 +10,7 @@ public class Audio : MonoBehaviour
     [SerializeField] private UnityEngine.Audio.AudioMixer _audioMixer;
 
     private readonly int _linearToAttenuationLevel = 20;
+    private readonly float _defaultValue = 0f;
 
     private AudioSaver _audioSaver;
 
@@ -42,6 +43,18 @@ public class Audio : MonoBehaviour
         _audioMixer.GetFloat(SfxVolume, out float sfx);
         _audioMixer.GetFloat(AmbientVolume, out float ambient);
 
+        master = GetNormalVolume(master);
+        sfx = GetNormalVolume(sfx);
+        ambient = GetNormalVolume(ambient);
+
         _audioSaver.Save(master, ambient, sfx);
+    }
+
+    private float GetNormalVolume(float volume)
+    {
+        if (float.IsNormal(volume) == false)
+            volume = _defaultValue;
+
+        return volume;
     }
 }

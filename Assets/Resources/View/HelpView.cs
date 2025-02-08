@@ -7,7 +7,7 @@ using YG;
 public class HelpView : MonoBehaviour
 {
     [SerializeField] private Button _buttonHelp;
-    [SerializeField] private float _delay = 0.5f;
+    [SerializeField] private float _delay = 0.7f;
 
     private HelpPresenter _presenter;
     private bool _canGiveHelp = true;

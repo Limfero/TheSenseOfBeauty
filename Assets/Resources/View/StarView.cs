@@ -1,20 +1,28 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
+[RequireComponent(typeof(Animator))]
 public class StarView : MonoBehaviour
 {
-    [SerializeField] private Sprite StarOn;
+    private const string On = nameof(On);
 
-    private Image _image;
+    [SerializeField] private Sprite _starOn;
+    [SerializeField] private Image _startOff;
+
+    private Animator _animator;
 
     private void Awake()
     {
-        _image = GetComponent<Image>();
+        _animator = GetComponent<Animator>();
     }
 
-    public void On()
+    public void OnStar()
     {
-        _image.sprite = StarOn;
+        _animator.SetTrigger(On);
+    }
+
+    public void ChangeStar()
+    {
+        _startOff.sprite = _starOn;
     }
 }

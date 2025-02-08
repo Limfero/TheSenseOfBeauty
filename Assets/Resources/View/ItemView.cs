@@ -36,8 +36,8 @@ public class ItemView : MonoBehaviour
     private void OnMouseDown()
     {
         Vector3 mousePosition = GetMouseWorldPosition();
-        _offset = transform.position - mousePosition;
-        _lastPosition = transform.position;
+        _offset = _transform.position - mousePosition;
+        _lastPosition = _transform.position;
     }
 
     private void OnMouseDrag()
@@ -45,7 +45,7 @@ public class ItemView : MonoBehaviour
         _spriteRenderer.sortingOrder = _upOrder;
         _transform.rotation = Quaternion.identity;
         Vector3 mousePosition = GetMouseWorldPosition();
-        transform.position = mousePosition + _offset;
+        _transform.position = mousePosition + _offset;
     }
 
     private void OnMouseUp()

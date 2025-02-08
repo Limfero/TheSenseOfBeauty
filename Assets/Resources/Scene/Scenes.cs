@@ -30,19 +30,16 @@ public class Scenes : MonoBehaviour
 
     private void End(int finalId)
     {
-        Time.timeScale = 0;
         _endWindow.Enable(finalId);
     }
 
     private void LoadNextScene() 
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(_idNextScene);
     }
 
     private void RestartScene()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

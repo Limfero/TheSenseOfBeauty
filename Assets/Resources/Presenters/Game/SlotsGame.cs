@@ -7,40 +7,33 @@ public class SlotsGame : Game
 {
     [SerializeField] private SlotGameVariant _variant;
 
+    private bool _finalFound = false;
+
     public override event Action<int> Ended;
 
     private void OnEnable()
     {
         foreach (Final final in Finals)
-        {
             foreach (ItemsInSlot itemsInSlot in final.ItemsInSlots)
-            {
                 itemsInSlot.Slot.Added += OnChange;
-                itemsInSlot.Slot.Removed += OnChange;
-            }
-        }
     }
 
     private void OnDisable()
     {
         foreach (Final final in Finals)
-        {
             foreach (ItemsInSlot itemsInSlot in final.ItemsInSlots)
-            {
                 itemsInSlot.Slot.Added -= OnChange;
-                itemsInSlot.Slot.Removed -= OnChange;
-            }
-        }
+
     }
 
     private void OnChange(ItemPresenter item)
     {
         foreach (Final final in Finals)
         {
-            if (CheckFinal(final) == true)
+            if (CheckFinal(final) == true && _finalFound == false)
             {
                 Ended?.Invoke(final.FinalId);
-                return;
+                _finalFound = true;
             }
         }
     }

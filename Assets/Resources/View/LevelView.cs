@@ -11,6 +11,6 @@ public class LevelView : MonoBehaviour
     {
         for (int i = 0; i < _stars.Count; i++)
             if (_results.CheckFinal(i + 1, _idSceneLevel))
-                _stars[i].On();
+                _stars[i].ChangeStar();
     }
 }
