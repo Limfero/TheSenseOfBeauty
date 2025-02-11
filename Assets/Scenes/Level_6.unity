@@ -3499,6 +3499,26 @@ MonoBehaviour:
       _items: 010000000900000003000000
     - _slot: {fileID: 135045125}
       _items: 010000000900000003000000
+  - _finalId: 1
+    _itemsInSlots:
+    - _slot: {fileID: 996288698}
+      _items: 03000000
+    - _slot: {fileID: 892056564}
+      _items: 06000000
+    - _slot: {fileID: 61165084}
+      _items: 09000000
+    - _slot: {fileID: 1586346512}
+      _items: 02000000
+    - _slot: {fileID: 1054216764}
+      _items: 05000000
+    - _slot: {fileID: 47615452}
+      _items: 08000000
+    - _slot: {fileID: 1659368018}
+      _items: 01000000
+    - _slot: {fileID: 35411181}
+      _items: 04000000
+    - _slot: {fileID: 135045125}
+      _items: 07000000
   _variant: 1
 --- !u!4 &1018480780
 Transform:
