@@ -16,19 +16,8 @@ public class AudioApplicator : MonoBehaviour
     private readonly int _logarithmBase = 10;
     private readonly int _linearToAttenuationLevel = 20;
 
-    private void OnEnable()
-    {
-        WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
-    }
-
-    private void OnDisable()
-    {
-        WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
-    }
-
     private void Awake()
     {
-        WebApplication.CallbackLogging = true;
         _audio = GetComponent<Audio>();
         _audioSaver = GetComponent<AudioSaver>();
     }
@@ -42,12 +31,6 @@ public class AudioApplicator : MonoBehaviour
 
         ApplyAudioSetting(settings);
         ApplySlidersSettings(settings);
-    }
-
-    private void OnInBackgroundChange(bool inBackground)
-    {
-        AudioListener.pause = inBackground;
-        AudioListener.volume = inBackground ? 0f : 1f;
     }
 
     private void ApplySlidersSettings(AudioSetting setting)

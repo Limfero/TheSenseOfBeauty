@@ -1,3 +1,4 @@
+using Agava.WebUtility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,8 @@ public class AudioSingleton : MonoBehaviour
 
     private void Awake()
     {
+        WebApplication.CallbackLogging = true;
+
         _source = GetComponent<AudioSource>();
 
         if (s_instance != null && s_instance != this)
@@ -29,11 +32,13 @@ public class AudioSingleton : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.activeSceneChanged += OnSceneChanged;
+        WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
     }
 
     private void OnDisable()
     {
         SceneManager.activeSceneChanged -= OnSceneChanged;
+        WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
     }
 
     private void OnSceneChanged(Scene first, Scene second)
@@ -46,5 +51,12 @@ public class AudioSingleton : MonoBehaviour
             return;
 
         _source.Play();
+    }
+
+
+    private void OnInBackgroundChange(bool inBackground)
+    {
+        AudioListener.pause = inBackground;
+        AudioListener.volume = inBackground ? 0f : 1f;
     }
 }
